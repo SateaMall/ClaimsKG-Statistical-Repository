@@ -1,0 +1,24 @@
+#graph1 {
+    width: 100%;
+    height: 100%;
+  }
+#download {
+    color:rgb(47, 56, 92) ;
+    padding: 10px;
+}
+#download:hover {
+    color: rgb(134, 40, 40);
+}
+#download:focus {
+    outline: none; /* Remove the focus outline */
+}
+.body{
+    border-radius: 25px;
+    background-color: white; 
+}
+.tip {
+    display: block;
+    margin: 15px;
+    font-size: 16px;
+    color: #888;
+  }

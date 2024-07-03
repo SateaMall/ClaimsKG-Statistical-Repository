@@ -1,0 +1,147 @@
+form {
+
+    width: 90%; /* Use 100% for better responsiveness */
+    max-width: 700px;
+    margin: auto;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color: #fff;
+    margin-bottom: 10px;
+}
+
+.topic{
+  margin-bottom: 15px;
+}
+.mat-form-field, .selected-items, .topic-container, .date-input-container {
+  margin-bottom: 15px; /* Consistent spacing between sections */
+}
+
+.mat-form-field {
+  width: 100%; /* Ensures the field spans full width of the form */
+}
+
+  /* Container styling */
+  .selected-items {
+    background-color: #f0f0f0; /* Light grey background for the container */
+    padding: 10px; /* Padding around the content */
+    border-radius: 8px; /* Rounded corners */
+  }
+
+    /* Chip grid and row styling */
+    mat-chip-grid {
+      display: flex; /* Ensures the chips are laid out horizontally */
+      flex-wrap: wrap; /* Allows chips to wrap onto the next line */
+      gap: 10px; /* Space between chips */
+    }
+
+
+.date-input-container {
+  display:flex;
+    justify-content: space-between;
+  }
+  
+  .date-input-container > div {
+    margin: 5px;
+  }
+
+  mat-form-field{
+    width: 100%;
+  }
+input {
+    margin:6px;
+    width: 100%  ;
+    padding: 12px; /* Slightly more padding for more space inside the select */
+    border: 1px solid #aaa; /* Lighter and thinner border */
+    border-radius: 8px; /* More rounded corners */
+    font-size: 16px;
+    color: #333;
+    background-color: #fff;
+    outline: none;
+    appearance: none; 
+    cursor:auto;
+}
+select {
+  margin: 5px;
+  width: 100%;
+  padding: 12px; /* Slightly more padding for more space inside the select */
+  border: 1px solid #aaa; /* Lighter and thinner border */
+  border-radius: 8px; /* More rounded corners */
+  font-size: 16px;
+  color: #333;
+  background-color: #fff;
+  outline: none;
+  appearance: none; 
+  cursor:auto;
+}
+.button-search{
+  display:flex;
+  flex-direction: column;
+  margin-left: 60px;
+  margin-right: 60px;
+}
+button {
+    background-color:rgb(47, 56, 92);
+    color: white;
+    border: none;
+    padding: 12px 30px; /* More padding for a bigger, easier-to-click button */
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px; /* More rounded corners */
+    transition: background-color 0.3s;
+    outline: none;
+}
+
+button:hover {
+    background-color:  rgb(42, 60, 136);
+}
+
+  
+  .chips {
+    background-color:    rgb(42, 60, 136) !important;
+    border: none !important;
+    font-size: 16px !important;
+    border-radius: 16px !important;
+    padding: 8px 12px !important;
+  }
+  .chips-text {
+    margin-right: 8px; /* Space between the text and the icon */
+    color: white !important;
+}
+  
+  /* Icon within the chip */
+  mat-icon {
+    color: white; /* White color for the icon */
+    cursor: pointer; /* Cursor indicates clickable */
+  }
+  
+  /* Hover effects for chips */
+  .chips:hover {
+    opacity: 0.87; /* Slight transparency on hover */
+    background-color:  rgb(47, 56, 92); 
+
+  }
+
+  mat-icon {
+    color: rgb(112, 112, 112);
+    cursor: pointer;
+    font-size: 16px; 
+    margin-left: 10px;
+  }
+  .graphs {
+    padding:20px;
+  }
+
+  .tip {
+    display: block;
+    margin-top: 8px;
+    font-size: 12px;
+    color: #888;
+  }
+  .span-guide {
+    cursor: help; 
+    text-decoration: underline; 
+    color: rgb(134, 40, 40); 
+  }

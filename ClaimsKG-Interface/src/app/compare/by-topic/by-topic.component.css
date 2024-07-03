@@ -1,0 +1,100 @@
+form {
+    width: 90%; /* Use 100% for better responsiveness */
+    max-width: 700px;
+    margin: auto;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color: #fff;
+    margin-bottom: 10px;
+}
+
+ .topic-input-element, .date-input-container {
+  margin-bottom: 10px; /* Consistent spacing between sections */
+}
+.topic-input-element{
+  width: 50%;
+}
+
+.date-input-container ,.topic-input-container {
+  display:flex;
+    justify-content: center;
+    padding: 5px;
+}
+  
+.date-input-container > div , .topic-input-container > div{
+    margin: 10px;
+}
+
+input {
+    margin:6px;
+    width: 100%  ;
+    padding: 12px; /* Slightly more padding for more space inside the select */
+    border: 1px solid #aaa; /* Lighter and thinner border */
+    border-radius: 8px; /* More rounded corners */
+    font-size: 16px;
+    color: #333;
+    background-color: #fff;
+    outline: none;
+    appearance: none; 
+    cursor:auto;
+}
+
+select {
+  margin: 5px;
+  width: 100%;
+  padding: 12px; /* Slightly more padding for more space inside the select */
+  border: 1px solid #aaa; /* Lighter and thinner border */
+  border-radius: 8px; /* More rounded corners */
+  font-size: 16px;
+  color: #333;
+  background-color: #fff;
+  outline: none;
+  appearance: none; 
+  cursor:auto;
+}
+
+.button-search{
+  display:flex;
+  flex-direction: column;
+  margin-left: 60px;
+  margin-right: 60px;
+}
+
+button {
+    background-color: rgb(47, 56, 92);
+    color: white;
+    border: none;
+    padding: 12px 30px; /* More padding for a bigger, easier-to-click button */
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px; /* More rounded corners */
+    transition: background-color 0.3s;
+    outline: none;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: rgb(47, 56, 92);
+}
+
+
+mat-icon {
+  color: rgb(112, 112, 112);
+  cursor: pointer;
+  font-size: 16px; 
+  margin-left: 10px;
+}
+.graphs {
+  padding:20px;
+}
+
+.span-guide {
+  cursor: help; 
+  text-decoration: underline; 
+  color: rgb(134, 40, 40); 
+  margin: 15px; /* Consistent spacing between sections */
+  
+}

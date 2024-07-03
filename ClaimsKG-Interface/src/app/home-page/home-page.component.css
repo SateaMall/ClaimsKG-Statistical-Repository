@@ -1,0 +1,142 @@
+.header {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column; /* Ensures the content is arranged vertically */
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  height: 100vh; /* Set the header height to be the full viewport height */
+  min-height: 400px;
+  max-height: 800px;
+  min-width: 300px;
+  color: #eee;
+  min-height: 100vh;
+}
+
+.header::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background:  rgba(27,32,48,1);
+  background-size: cover;
+  background-attachment: scroll; 
+  z-index: -2;
+  animation: grow 360s linear 10ms infinite; 
+}
+
+
+
+
+
+.info {
+  z-index: 1; /* Ensure content is above the background */
+  width: 100%;
+  padding: 2% 15%; /* Adjust padding as needed */
+  text-align: center;
+  text-shadow: 0 2px 3px rgba(0,0,0,0.2);
+}
+
+
+
+.content{  
+  padding:5% 10%;
+  text-align:justify
+}
+h2{
+  text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.397);
+}
+h1 {
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.459);
+  font-weight: bold;
+  font-size: 50px; /* Default size for larger screens */
+}
+
+/* Media query for medium screens, e.g., tablets */
+@media (max-width: 930px) {
+  h1 {
+    font-size: 35px; /* Smaller font size for medium screens */
+  }
+}
+
+/* Media query for small screens, e.g., phones */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 30px; /* Even smaller font size for small screens */
+  }
+}
+
+/* SUMMARY */
+.summary {
+  color: black;
+  background-color: rgb(236, 236, 236);
+  padding: 20px; /* Consistent padding inside each box */
+  margin-bottom: 15px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 250px; /* Fixed width */
+  height: 80px; /* Fixed height */
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns by default */
+  gap: 4px; /* Adjust the gap as needed */
+}
+
+@media (max-width: 1000px) { /* Adjust the breakpoint as needed */
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* Switch to 2 columns when the screen width is 800px or less */
+  }
+}
+
+
+/* Buttons */
+
+.button-container {
+  display: flex;         /* This makes the child elements (buttons) align in a row */
+  justify-content: center; /* This will center the buttons in the container */
+  gap:30px;            /* This adds space between the buttons */
+  margin: 20px;         /* This adds margin around the container itself */
+}
+.main-button-container {
+  display: flex;         /* This makes the child elements (buttons) align in a row */
+  justify-content: center; /* This will center the buttons in the container */      
+  margin: 20px;         /* This adds margin around the container itself */
+}
+.button-container > button{
+  font-weight: bold;
+  background-color: rgb(153, 34, 34);
+  color: white;
+  border: none;
+  padding: 12px 30px;  
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;  
+  transition: background-color 0.3s;
+  outline: none;
+  min-width: 220px;  
+  min-height: 80px;    
+}
+.main-button-container > button{
+  font-weight: bold;
+  background-color: rgb(153, 34, 34);
+  color: white;
+  border: none;
+  padding: 12px 30px; 
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px; 
+  transition: background-color 0.3s;
+  outline: none;
+  min-width: 470px;    
+  min-height: 80px;    
+}
+.button-container > button:hover, .main-button-container > button:hover {
+  background-color: rgb(187, 43, 43);
+}

@@ -1,0 +1,25 @@
+<app-navigation-bar></app-navigation-bar>
+<div class="container-global">
+    <div class="button-container">
+        <div>
+            <button class="button_title" [class.active]="activeButton === 'topic'" (click)="setActive('topic')">Topic Compare <span class="small">(English only)</span></button>
+            <button class="button_title" [class.active]="activeButton === 'entity'" (click)="setActive('entity')">Entity Compare</button>
+            <button class="button_title" [class.active]="activeButton === 'entity-topic'" (click)="setActive('entity-topic')">Advanced Comparison <span class="small">(English only)</span></button>
+        </div>
+    </div>
+
+    <div [ngSwitch]="activeButton">
+        <div  *ngSwitchCase="'topic'">
+            <app-by-topic></app-by-topic>
+        </div>
+
+        <div *ngSwitchCase="'entity'">
+            <app-by-entity ></app-by-entity>
+        </div>
+
+        <div *ngSwitchCase="'entity-topic'">
+            <app-by-entity-by-topic></app-by-entity-by-topic>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,34 @@
+.container-global{
+    padding-top: 150px;
+    padding-left: 50px;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    font-size: 20px;
+  }
+
+.affiliates-list {
+    list-style: none;
+    padding: 10px;
+}
+.affiliates-list li {
+    margin-bottom: 10px;
+}
+.affiliates-list a {
+    color: #0077cc;
+    text-decoration: none;
+}
+.affiliates-list a:hover {
+    text-decoration: underline;
+}
+.creator-info {
+    margin-top: 20px;
+
+}
+.creator-info a {
+    color: #0077cc;
+    text-decoration: none;
+}
+.creator-info a:hover {
+    text-decoration: underline;
+}

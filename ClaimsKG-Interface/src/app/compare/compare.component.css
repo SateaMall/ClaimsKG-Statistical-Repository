@@ -1,0 +1,32 @@
+
+
+.button_title {
+    background-color: rgba(255, 255, 255, 0);
+    color: black;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    outline: none;
+    margin: em;
+    border: none; 
+    border-bottom: 3px solid transparent; 
+  }
+  
+  .button_title:hover {  transition: background-color 0.3s ease;
+    color: rgb(187, 43, 43); /* Slightly visible on hover */
+  }
+  
+  .active {
+    color: rgb(134, 40, 40); /* Slightly visible on hover */
+    border-bottom-color:  rgb(134, 40, 40); 
+  }
+  .button-container {
+    display: flex;
+    justify-content: space-around; /* This will space out the buttons equally */
+    align-items: center; /* Aligns buttons vertically */
+    padding: 20px; /* Padding around the container */
+  }
+  .container-global{
+    padding-top: 70px;
+  }

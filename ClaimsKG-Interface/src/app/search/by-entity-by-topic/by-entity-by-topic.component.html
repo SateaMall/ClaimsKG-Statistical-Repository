@@ -1,0 +1,74 @@
+<form (ngSubmit)="submit(firstDate.value, lastDate.value)" novalidate>
+    <!-- Topic dropdown -->
+    <div class="form-field-wrapper topic">
+      <label for="topic">Choose a topic:</label>
+      <mat-icon class="icon" matTooltip="What topic is relevant to your search?" matTooltipPosition="right">help_outline</mat-icon>
+      <select id="topic" [(ngModel)]="selectedTopic" name="selectedTopic" (ngModelChange)="onTopicChange()" required>
+        <option *ngFor="let topic of topics" [value]="topic">{{ topic }}</option>
+      </select>
+    </div>
+  
+    <!-- Entities input -->
+    <mat-form-field>
+      <label for="entity">About (entities):</label>
+      <mat-icon class="icon-entity" matTooltip="Entites are physical unites that are ment to descirble a location, a person an organisations an event, etc.. . ex: Paris, Donald Trump." matTooltipPosition="right">help_outline</mat-icon>
+      <div class="form-field-wrapper">
+        <input matInput [matAutocomplete]="auto" class="mat-input" id="entity" [formControl]="formEntity">
+        <span class="tip">Tip: Include top 5 suggestions or more that describe your needs for the best accuracy</span>
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let item of suggestions | async" [value]="item" (click)="optionClicked($event, item)">
+            {{ item }}
+          </mat-option>
+        </mat-autocomplete>
+      </div>
+    </mat-form-field>
+  
+    <!-- Selected options -->
+    <div class="selected-items" *ngIf="selectedOptions.length > 0">
+      <div>
+        <mat-chip-grid>
+          <mat-chip *ngFor="let so of selectedOptions" (removed)="toggleSelection(so)" class="chips">
+            <span class="chips-text">{{ so }}</span>
+            <mat-icon matChipRemove>cancel</mat-icon>
+          </mat-chip>
+        </mat-chip-grid>
+      </div>
+    </div>
+
+    <!-- Date input fields -->
+    <div class="date-input-container">
+      <div class="form-field-wrapper">
+        <label for="start-date">Enter starting date:</label>
+        <mat-icon class="icon" matTooltip="When do you want your search to start?" matTooltipPosition="right">help_outline</mat-icon>
+        <input id="start-date" type="date" placeholder="Enter Start Date..." #firstDate>
+      </div>
+      <div class="form-field-wrapper">
+        <label for="end-date">Enter ending date:</label>
+        <mat-icon class="icon" matTooltip="When do you want your search to end?" matTooltipPosition="right">help_outline</mat-icon>
+        <input id="end-date" type="date" placeholder="Enter End Date..." #lastDate>
+      </div>
+    </div>
+    
+  <span class="span-guide date-input-container " matTooltip="The graphics are interactive, You can hover on them to have more information and use the tools to download jpg or even crop or hide some data by interacting with the legend of each graph">How to use our graphs</span>
+
+    <!-- Submit button -->
+    <div class="button-search">
+        <button type="submit" [disabled]="selectedOptions.length === 0">SEARCH</button>
+    </div>
+
+  </form>
+
+  <div *ngIf="submitted">
+    <div class="grid grid-cols-1 md:grid-cols-2 grid-rows-auto gap-4 graphs">
+      <div class="col-span-1 md:col-span-2" style="width: 100%; height: 100%; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 15px;">
+        <app-graph1 [entityData]="entityData"></app-graph1>
+      </div>
+      <div style="width: 100%; height: 100%; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 15px;">
+        <app-graph2 [entityData]="entityData2"></app-graph2>
+      </div>
+      <div style="width: 100%; height: 100%; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 15px;">
+        <app-graph3 [entityData]="entityData3"></app-graph3>
+      </div>
+    </div>
+  </div>
+  

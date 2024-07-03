@@ -1,0 +1,17 @@
+.graphs-top {
+  display: flex;
+  margin-bottom: 20px; 
+}
+
+.conatiner-global{
+  padding-top: 85px;
+}
+.graphs {
+  padding:20px;
+}
+span {
+  cursor: help;
+  text-decoration: underline; 
+  color: rgb(134, 40, 40); 
+  margin-left: 20px;
+}

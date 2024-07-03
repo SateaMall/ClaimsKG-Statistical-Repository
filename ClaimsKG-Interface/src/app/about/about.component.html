@@ -1,0 +1,52 @@
+<app-navigation-bar></app-navigation-bar>
+<div  class="container-global">
+    <div class="about-section">
+        <h1 style="font-weight: bold;">ClaimsKG Statistical Observatory</h1>
+        <h2>Overview</h2>
+        <p>
+            Claims KG Statistics Tool is an advanced extension of the Claims KG project, designed to provide comprehensive statistical insights and graphical representations of fact-checking articles stored in the Claims KG knowledge graph. 
+            This tool enables users to dive deeper into the data, gaining valuable insights into the publishing trends, sources, languages, topics, and other significant attributes of the collected fact-checking articles.
+        </p>
+
+        <p>Just like the ClaimsKG search engine, the statistical observatory is the result of a collaborative effort
+            between French and German research teams. It is made available to the public for research purposes, while
+            respecting the copyrights of the source fact-checking websites.
+        </p>
+
+        <h2>What is Claims KG?</h2>
+        <p>
+            Claims KG is a project dedicated to aggregating articles from a variety of trustworthy websites, creating a robust knowledge graph. This graph is enriched through sophisticated algorithms that extract additional knowledge, providing a rich and structured dataset. The primary goal of Claims KG is to enhance information credibility and accessibility, contributing to the fight against misinformation by relying on reputable sources.
+        </p>
+
+        <p>
+            This statistical observatory allows for the visual exploration of various metrics and trends related to
+            claims and their verification across the different fact-checking websites included in ClaimsKG.
+        </p>
+
+        <h2>Key Definitions</h2>
+        <ul style=" list-style-type:circle;">
+            <li><b>Entities:</b> entites are physical unites that are ment to descirble a location, a person an organisations an event, etc..</li>
+            <li><b>Truth rating:</b> This criteria refers to the credibility given to the claims according to the website from where it got extracted. Every website has its own ranking but in this interface only 4 types of truth ratings are possible (taken from the normalised rating scheme of ClaimsKG): TRUE, FALSE, MIXTURE, OTHER.
+                Only labeled a claim as TRUE or FALSE if it was completely true or completely false and did not have any ambiguity in their ratings.
+                MIXTURE is assigned to claims which hold a degree of both truth and falsehood, such as “half-true”, or “misleading”.
+                OTHER is for claims that do not fit into the TRUE/FALSE or MIXTURE categories and has rating names like “Pending Investigation” or “photo out of context”, among several others.
+            </li>
+            <li><b>Time period:</b> You can select a start date and an end date which will define the time period of the claims you're looking for. </li>
+            <li><b>Topics:</b> The topics are generated autoumatically from the claims kg plateform and are only available for the claims/articles that are written in english. So the search engines (topic / topic-entity) are only for english claims</li>
+            <li><b>Sources:</b> The sources are the websites were the articles/claims were extracted from (ex. AFP Fact Check).</li>
+            <li><b>Keywords:</b> Keywords are automatically extracted from claims(articles). For example, a claim concerning COVID-19 may be tagged with "Economy".</li>
+        </ul>
+        <br>
+        <h2>Key Features:</h2>
+        <ul>
+            <li>Visualization of the total number of claims and fact-checking reviews over time</li>
+            <li>Distribution of truth evaluations (true, false, mixte, others)</li>
+            <li>Analysis of the frequency of appearance of different entities (people, organizations, locations, etc.)
+                associated with the claims</li>
+            <li>Evolution of the number of claims by thematic category (politics, health, economy, etc.)</li>
+            <li>Comparison of the performance of different fact-checking websites in terms of coverage volume and
+                results</li>
+        </ul>
+
+
+</div>

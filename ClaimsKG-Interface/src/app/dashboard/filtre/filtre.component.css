@@ -1,0 +1,124 @@
+.sticky-div {
+    padding: 2rem;
+    background: transparent;
+    position: sticky;
+    bottom: 0;
+  }
+
+.parametres{
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+  background-color:  rgb(47, 56, 92); 
+}
+.parametres:hover {
+  background-color: rgb(46, 62, 126);
+}
+.button-sub{
+  background-color:   rgb(47, 56, 92);
+  color: white;
+  border: none;
+  padding: 12px 30px; /* More padding for a bigger, easier-to-click button */
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px; /* More rounded corners */
+  transition: background-color 0.3s;
+  outline: none;
+}
+
+.button-sub:hover {
+  background-color:rgb(46, 62, 126);
+}
+
+
+.button-search{
+  display:flex;
+  flex-direction: column;
+  margin-left: 60px;
+  margin-right: 60px;
+}
+
+/* Style for the modal */
+.modal {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-container {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.radio-group {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.date-range {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.date-input {
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.entity-filter {
+  margin-top: 20px;
+}
+
+.add-btn {
+  background-color: #992222;
+  color: #ffffff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-btn:hover {
+  background-color: #b33a3a;
+}
+
+.selected-entity {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.submit-btn {
+  background-color: #73aca8;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #609c95;
+}
+
+.submit-btn {
+  background-color:rgb(47, 56, 92);
+  color: white;
+  border: none;
+  padding: 12px 30px; /* More padding for a bigger, easier-to-click button */
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px; /* More rounded corners */
+  transition: background-color 0.3s;
+  outline: none;
+}
+
+.submit-btn:hover {
+  background-color:  rgb(42, 60, 136);
+}

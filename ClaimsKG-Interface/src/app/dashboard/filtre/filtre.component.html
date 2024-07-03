@@ -1,0 +1,41 @@
+<div class="sticky-div">
+  <button class="parametres flex justify-center items-center bg-gray-100 border border-gray-300 rounded-full p-2 shadow-lg hover:bg-gray-200 transition" (click)="displayElement()">
+    <img src="assets/images/icons/parametres.png" class="w-6 h-6">
+  </button>
+</div>
+<div class="filtre modal fixed w-full h-full top-0 left-0 flex items-center justify-center bg-black bg-opacity-50 rounded-lg shadow-xl p-8 space-y-6" [hidden]="displayDate" (click)="displayElement()">
+  <form action="" class="filtre w-full max-w-lg bg-white rounded-lg" [formGroup]="applyForm" (submit)="onSubmit()" (click)="$event.stopPropagation()">
+    <div class="modal-container space-y-4  rounded-lg shadow-xl p-8 space-y-6">
+      <div class="text-center text-xl font-semibold text-gray-700">Date granularity: </div>
+      
+      <div class="flex items-center justify-around space-x-4">
+        <label for="annee" class="flex items-center space-x-2 text-gray-700">
+          <input type="radio" id="annee" name="granularite" value="Annee" formControlName="granularite" class="text-indigo-600 focus:ring-indigo-500">
+          <span>Year</span>
+        </label>
+        <label for="mois" class="flex items-center space-x-2 text-gray-700">
+          <input type="radio" id="mois" name="granularite" value="Mois" formControlName="granularite" class="text-indigo-600 focus:ring-indigo-500">
+          <span>Month</span>
+        </label>
+        <label for="jour" class="flex items-center space-x-2 text-gray-700">
+          <input type="radio" id="jour" name="granularite" value="Jour" formControlName="granularite" class="text-indigo-600 focus:ring-indigo-500">
+          <span>Day</span>
+        </label>
+      </div>
+      
+      <div class="text-center text-xl font-semibold text-gray-700">Period : </div>
+      <div class="date-range flex flex-col items-center space-y-2">
+        <div class="flex items-center">
+          <input class="border border-gray-300 rounded-l px-3 py-2 focus:ring focus:ring-indigo-200" type="date" name="date1" id="date1" formControlName="date2">
+          <span class="mx-2 text-gray-500">to</span>
+          <input class="border border-gray-300 rounded-r px-3 py-2 focus:ring focus:ring-indigo-200" type="date" name="date2" id="date2" formControlName="date1">
+        </div>
+      </div>
+
+      
+      <div class="flex items-center justify-center mt-4">
+        <input class="submit-btn bg-teal-500 text-white py-3 px-8 rounded-full shadow-lg hover:bg-teal-600 transition transform hover:scale-105 cursor-pointer" type="submit" value="Submit" (click)="onClick();displayElement()">
+      </div>
+    </div>
+  </form>
+</div>

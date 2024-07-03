@@ -1,0 +1,63 @@
+<form (ngSubmit)="submit(firstDate.value,lastDate.value)" novalidate>
+
+<div class="topic-input-container">
+  <div class="topic-input-element">
+    <label for="topic1">Choose a Group1 topic:</label>
+    <mat-icon class="icon" matTooltip="which topic is relevant to your search?" matTooltipPosition="right">help_outline</mat-icon>
+    <select id="topic1" [(ngModel)]="selectedTopic1" name="selectedTopic1" required>
+      <option *ngFor="let topic of topics" [value]="topic">{{ topic }}</option>
+    </select>
+  </div>
+
+  <div class="topic-input-element">
+    <label for="topic2">Choose a Group2 topic:</label>
+    <mat-icon class="icon" matTooltip="which topic is relevant to your search?" matTooltipPosition="right">help_outline</mat-icon>
+    <select id="topic2" [(ngModel)]="selectedTopic2" name="selectedTopic2" required>
+      <option *ngFor="let topic of topics" [value]="topic">{{ topic }}</option>
+    </select>
+  </div>
+
+</div>
+<div class="date-input-container">  
+
+  <div >
+    <label for="start-date">Enter starting date:</label>
+    <mat-icon class="icon"  matTooltip="When do you want your search to start?" matTooltipPosition="right">help_outline</mat-icon>
+    <input id="start-date" type="date" placeholder="Enter Start Date..." #firstDate>
+  </div>
+
+  <div>
+    <label for="end-date">Enter ending date:</label>
+    <mat-icon class="icon" matTooltip="When do you want your search to end?" matTooltipPosition="right">help_outline</mat-icon>
+    <input id="end-date" type="date" placeholder="Enter End Date..." #lastDate>
+  </div>
+</div>
+
+<span class="span-guide " matTooltip="The graphics are interactive, You can hover on them to have more information and use the tools to download jpg or even crop or hide some data by interacting with the legend of each graph">How to use our graphs</span>
+
+<div class="button-search">
+  <button type="submit" [disabled]="!selectedTopic1 || !selectedTopic2">COMPARE</button>
+</div>
+
+</form>
+
+  
+<div *ngIf="submitted">
+  <div class="grid grid-cols-1 md:grid-cols-2 grid-rows-auto gap-4 graphs">
+    <div class="col-span-1 md:col-span-2" style="width: 100%; height: 100%; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 15px;">
+      <app-graph1 [entityData1]="entityData11"  [entityData2]="entityData12"></app-graph1>
+    </div>
+    <div style="width: 100%; height: 100%; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 15px;">
+      <app-graph2 [entityData1]="entityData21" [name]="' Group 1'" ></app-graph2>
+    </div>
+    <div style="width: 100%; height: 100%; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 15px;">
+      <app-graph2 [entityData1]="entityData22" [name]="' Group 2'"></app-graph2>
+    </div>
+    <div class="col-span-1 md:col-span-2" style="width: 100%; height: 100%; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 15px;">
+      <app-graph3 [entityData1]="entityData31"  [entityData2]="entityData32"></app-graph3>
+    </div>
+    <div class="col-span-1 md:col-span-2" style="width: 100%; height: 100%; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 15px;">
+      <app-graph5 [entityData1]="entityData4" ></app-graph5>
+    </div>
+  </div>
+</div>

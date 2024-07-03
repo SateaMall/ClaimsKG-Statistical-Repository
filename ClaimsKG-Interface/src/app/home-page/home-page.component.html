@@ -1,0 +1,32 @@
+<app-navigation-bar></app-navigation-bar>
+  
+<div class="header">
+  
+  <div class="info">
+  <h1>Welcome to</h1>
+  
+    <h1>ClaimsKG Statistical Observatory</h1>
+    <br>
+    <h2>Explore dynamic, interactive graphs derived from the ClaimsKG knowledge graph. This tool allows you to visualize statistical data in real-time, search through datasets, and download the graphs in JPEG images or in TSV, CSV, Excel format for deeper analysis.</h2>
+  </div>
+
+  <section class="content">
+    <div class="grid grid-cols-4 grid-rows-1 gap-4 w-0.1">
+      <div class="summary flex items-center justify-center" [innerHTML]="numberClaims"></div>
+      <div class="summary flex items-center justify-center" [innerHTML]="numberClaimsReview"></div>
+      <div class="summary flex items-center justify-center" [innerHTML]="since"></div>
+      <div class="summary flex items-center justify-center" [innerHTML]="to"></div>
+    </div>
+
+    <div class="main-button-container">
+      <button  (click)="navigate('/dashboard')">DASHBOARD</button>
+    </div>
+    <div class="button-container">
+      <button  (click)="navigate('/compare')">COMPARE</button>
+      <button  (click)="navigate('/search')">SEARCH</button>
+    </div>
+
+
+  </section>
+  
+</div>
