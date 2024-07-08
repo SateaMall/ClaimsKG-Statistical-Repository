@@ -1,7 +1,5 @@
 import csv
-from copy import deepcopy
 import langcodes
-import numpy as np
 import pandas 
 from SPARQLWrapper import SPARQLWrapper, JSON
 

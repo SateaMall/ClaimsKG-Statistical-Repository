@@ -13,10 +13,8 @@ from modules.functions.dashboard import list_resume_claims_per_langues
 from modules.functions.dashboard import list_resume_born_topics
 from modules.functions.dashboard import list_resume_born_source_label
 from modules.functions.dashboard import entity, entity2
-from modules.dataframes.dataframe_singleton import df_simple
 from modules.dataframes.dataframe_singleton import df_keyword
 from modules.dataframes.dataframe_singleton import df_entity
-from modules.dataframes.dataframe_singleton import df_topic
 
 
 app = Flask(__name__)

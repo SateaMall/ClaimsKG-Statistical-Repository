@@ -1,6 +1,5 @@
 from flask import current_app, jsonify
 import pandas
-from modules.dataframes.dataframe_singleton import df_simple
 from modules.dataframes.dataframe_singleton import df_keyword
 from modules.dataframes.dataframe_singleton import df_entity
 from modules.dataframes.dataframe_singleton import df_topic
@@ -100,10 +99,6 @@ def filter_data_topic(topic, firstDate=None, lastDate=None):
 
 def search_date_graph(df_filtered_entity, selectedEntities=None, topic=None,filter_keywords=False):
     # Exclude specific keywords
-
-    print("blaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-    print(filter_keywords)
-    print("blaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
     excluded_keywords = [ ]
     if filter_keywords:
         

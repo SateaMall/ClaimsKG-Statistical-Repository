@@ -1,9 +1,7 @@
 import json
 import pandas
 from modules.dataframes.dataframe_singleton import df_simple
-from modules.dataframes.dataframe_singleton import df_keyword
 from modules.dataframes.dataframe_singleton import df_entity
-from modules.dataframes.dataframe_singleton import df_topic
 
 
 #################################################   HOME page function   #########################################
