@@ -98,9 +98,16 @@ def filter_data_topic(topic, firstDate=None, lastDate=None):
 
     return filtered_df
 
-def search_date_graph(df_filtered_entity, selectedEntities=None, topic=None):
+def search_date_graph(df_filtered_entity, selectedEntities=None, topic=None,filter_keywords=False):
     # Exclude specific keywords
-    excluded_keywords = [
+
+    print("blaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    print(filter_keywords)
+    print("blaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    excluded_keywords = [ ]
+    if filter_keywords:
+        
+        excluded_keywords = [
         'fact check', 'false news', 'fact-check', 'fact checks', 'fake news', 'facebook fact-checks', 'punditfact', 'the news', 'facebook posts', 'online', 'viral content', 'tweet','tweets','facebook','facebooks'
     ]
     # Create additional exclusions for each individual word in selected entities and topics 

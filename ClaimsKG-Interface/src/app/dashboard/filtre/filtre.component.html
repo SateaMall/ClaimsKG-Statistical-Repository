@@ -6,8 +6,8 @@
 <div class="filtre modal fixed w-full h-full top-0 left-0 flex items-center justify-center bg-black bg-opacity-50 rounded-lg shadow-xl p-8 space-y-6" [hidden]="displayDate" (click)="displayElement()">
   <form action="" class="filtre w-full max-w-lg bg-white rounded-lg" [formGroup]="applyForm" (submit)="onSubmit()" (click)="$event.stopPropagation()">
     <div class="modal-container space-y-4  rounded-lg shadow-xl p-8 space-y-6">
-      <div class="text-center text-xl font-semibold text-gray-700">Date granularity: </div>
-      
+      <div class="text-center text-xl font-semibold text-gray-700">Date graph: </div>
+      <div class="text-left text-l font-semibold text-gray-700">Date Granularity: </div>
       <div class="flex items-center justify-around space-x-4">
         <label for="annee" class="flex items-center space-x-2 text-gray-700">
           <input type="radio" id="annee" name="granularite" value="Annee" formControlName="granularite" class="text-indigo-600 focus:ring-indigo-500">
@@ -22,7 +22,21 @@
           <span>Day</span>
         </label>
       </div>
-      
+
+      <div class="text-left text-l font-semibold text-gray-700">Keyword filtering: </div>
+      <mat-slide-toggle class="slide" formControlName="filter_keywords"> Filter out keywords that are not related to the event of the claim </mat-slide-toggle>
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Excluded keywords
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="excluded-keywords">
+            'fact check', 'false news', 'fact-check', 'fact checks', 'fake news', 'facebook fact-checks', 'punditfact', 'the news', 'facebook posts', 'online', 'viral content', 'tweet', 'tweets', 'facebook', 'facebooks'
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
       <div class="text-center text-xl font-semibold text-gray-700">Period : </div>
       <div class="date-range flex flex-col items-center space-y-2">
         <div class="flex items-center">

@@ -122,3 +122,18 @@
 .submit-btn:hover {
   background-color:  rgb(42, 60, 136);
 }
+
+.excluded-keywords {
+  padding: 10px;
+  font-size: 14px;
+  color: #555;
+}
+
+.slide {
+  padding: 10px;
+  outline: none;
+}
+
+mat-accordion{
+  margin: 20px;
+}

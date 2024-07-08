@@ -25,11 +25,11 @@ export class SearchService {
 
 
   /**** Service to get the informations for the entity search ****/
-  searchEntity1(selectedEntities: string[], firstDate: string, lastDate: string) :Observable<string[]>{
+  searchEntity1(selectedEntities: string[], firstDate: string, lastDate: string, keywords_filter:boolean) :Observable<string[]>{
     let params = new HttpParams()
     .set('firstDate', firstDate)
     .set('lastDate', lastDate)
-
+    .set('keywords_filter', keywords_filter)
   // Append each `selectedEntity` as a separate query parameter
     selectedEntities.forEach((entity) => {
       params = params.append('selectedEntities', entity);
@@ -75,11 +75,12 @@ export class SearchService {
   }
 
   /**** Service to get the informations for the topic search ****/
-  searchTopic1(firstDate: string, lastDate: string, topic: string) :Observable<string[]>{
+  searchTopic1(firstDate: string, lastDate: string, topic: string, keywords_filter: boolean) :Observable<string[]>{
     let params = new HttpParams()
     .set('firstDate', firstDate)
     .set('lastDate', lastDate)
-    .set('topic', topic);
+    .set('topic', topic)
+    .set('keywords_filter', keywords_filter);
     return this.http.get<string[]>('http://localhost:5000/search-topic1', { params });
   }
 
@@ -109,11 +110,12 @@ export class SearchService {
   }
 
     /**** Service to get the informations for the topic-entity search ****/
-    searchTopicEntity1(selectedEntities: string[], firstDate: string, lastDate: string, topic: string) :Observable<string[]>{
+    searchTopicEntity1(selectedEntities: string[], firstDate: string, lastDate: string, topic: string, keywords_filter: boolean) :Observable<string[]>{
       let params = new HttpParams()
       .set('firstDate', firstDate)
       .set('lastDate', lastDate)
-      .set('topic', topic);
+      .set('topic', topic)
+      .set('keywords_filter', keywords_filter);
   
     // Append each `selectedEntity` as a separate query parameter
       selectedEntities.forEach((entity) => {

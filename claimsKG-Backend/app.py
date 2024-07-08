@@ -72,11 +72,16 @@ def json_per_source_label():
 
 #first dashboard graph function with filtered
 @app.route("/json_per_date1_label",methods=['GET'])
-def json_filter_date(date1=None, date2=None, granularite=None):
+def json_filter_date(date1=None, date2=None, granularite=None,filter_keywords=None):
     date1 = request.args.get('date1')
     date2 = request.args.get('date2')
     granularite = request.args.get('granularite')
-    return list_resume_born_per_date_label(date1, date2, granularite)
+    filter_keywords=request.args.get('filter_keywords')
+
+    if filter_keywords=="false":
+        return list_resume_born_per_date_label(date1, date2, granularite, False)
+    else :
+        return list_resume_born_per_date_label(date1, date2, granularite, True)
 
 #second dashboard graph function
 @app.route("/json_per_entity")
@@ -153,8 +158,14 @@ def search_entity1():
     selectedEntities = request.args.getlist('selectedEntities')
     firstDate = request.args.get('firstDate')
     lastDate = request.args.get('lastDate')
+    filter_keywords= request.args.get('keywords_filter')
     filtered_df_entity = filter_data_entity(df_entity, selectedEntities, firstDate, lastDate)
-    return search_date_graph(filtered_df_entity,  selectedEntities = selectedEntities)
+
+    if filter_keywords=="false":
+        return search_date_graph(filtered_df_entity,  selectedEntities = selectedEntities)
+    else :
+        return search_date_graph(filtered_df_entity,  selectedEntities = selectedEntities, filter_keywords=filter_keywords)
+
  
 
 ### Search form (Entity)
@@ -188,9 +199,15 @@ def search_topic1():
     topic = request.args.get('topic')
     firstDate = request.args.get('firstDate')
     lastDate = request.args.get('lastDate')
+    filter_keywords= request.args.get('keywords_filter')
+
     filtered_df = filter_data_topic(topic, firstDate, lastDate)
     merged_df = pandas.merge(filtered_df, df_keyword[['claimReview_url','id2']], on='claimReview_url', how='left')
-    return search_date_graph(merged_df, topic=topic)
+    if filter_keywords=="false":
+        return search_date_graph(merged_df, topic=topic)
+    else :
+        return search_date_graph(merged_df, topic=topic, filter_keywords=filter_keywords)
+
 
 @app.route('/search-topic2', methods=['GET'])
 def search_topic2():
@@ -223,12 +240,17 @@ def search_entity_topic1():
     firstDate = request.args.get('firstDate')
     lastDate = request.args.get('lastDate')
     topic = request.args.get('topic')
+    filter_keywords= request.args.get('keywords_filter')
+
     filtered_df_topic = filter_data_topic(topic, firstDate, lastDate)
     filtered_df_topic['id1'] = filtered_df_topic['claimReview_url']
     filtered_df_entity_topic = filter_data_entity(filtered_df_topic, selectedEntities, firstDate, lastDate)
     ## Link topic with keywords
     merged_df = pandas.merge(filtered_df_entity_topic, df_keyword[['claimReview_url','id2']], on='claimReview_url', how='left')
-    return search_date_graph(merged_df, selectedEntities = selectedEntities,topic = topic)
+    if filter_keywords=="false":
+        return search_date_graph(merged_df, selectedEntities = selectedEntities,topic = topic)
+    else :
+        return search_date_graph(merged_df, selectedEntities = selectedEntities,topic = topic, filter_keywords=filter_keywords)
 
 
 

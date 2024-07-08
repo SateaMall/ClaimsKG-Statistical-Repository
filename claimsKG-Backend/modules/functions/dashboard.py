@@ -98,7 +98,8 @@ def born_per_topics_date(date1=None, date2=None):
     return df_filtered
 
 # First dashboard graph function with filtered
-def born_per_date_label(date1, date2, granularite):
+def born_per_date_label(date1, date2, granularite, filter_keywords):
+
     # Pre-treatments
     filtre = df_keyword['date1'].str.contains(r'^\d{4}-\d{2}-\d{2}$') & df_keyword['date1'].notna()
     df_filtre = df_keyword[filtre]
@@ -116,13 +117,17 @@ def born_per_date_label(date1, date2, granularite):
     df_filtre3 = df_filtre3.drop_duplicates(subset=['id1'])
 
     # Exclude specific keywords
-    excluded_keywords = [
+    # Exclude specific keywords
+    excluded_keywords = [ ]
+    df_filtered=df_filtre3
+    if filter_keywords:
+        excluded_keywords = [
         'fact check', 'false news', 'fact-check', 'fact checks', 'fake news', 'facebook fact-checks', 'punditfact', 'the news', 'facebook posts', 'online', 'viral content', 'tweet','tweets','facebook','facebooks'
-    ]
-    excluded_keywords_lower = [ keyword.lower() for keyword in excluded_keywords]
-    df_filtre3['keywords_lower'] = df_filtre3['keywords'].str.lower()
-    df_filtered = df_filtre3[~df_filtre3['keywords_lower'].isin(excluded_keywords_lower)]
-    df_filtered.drop(columns=['keywords_lower'], inplace=True)
+        ]
+        excluded_keywords_lower = [ keyword.lower() for keyword in excluded_keywords]
+        df_filtre3['keywords_lower'] = df_filtre3['keywords'].str.lower()
+        df_filtered = df_filtre3[~df_filtre3['keywords_lower'].isin(excluded_keywords_lower)]
+        df_filtered.drop(columns=['keywords_lower'], inplace=True)
 
     # Aggregate counts of unique claims by date and label
 
@@ -163,7 +168,6 @@ def langue_per_label(dat1, dat2):
         df_filtre2 = df_filtre2[(df_filtre['date1'] >= dat1) & (df_filtre2['date1'] <= dat2)]
     filtre_group_notna = df_filtre2.groupby(['id1','reviewBodyLang', 'label'])['reviewBodyLang'].size().reset_index(name='counts')
     final_grouped = filtre_group_notna.groupby(['reviewBodyLang', 'label'])['counts'].size().reset_index(name='counts')
-    print(final_grouped)
     return final_grouped
 
 
@@ -329,9 +333,8 @@ def list_resume_born_source_label(dat1, dat2):
     return json_data
 
 #JSON first graph dashboard with filtered 
-def list_resume_born_per_date_label(dat1, dat2, granularite):
-
-    claims_per_dat_label = born_per_date_label(dat1, dat2, granularite)
+def list_resume_born_per_date_label(dat1, dat2, granularite,filter_keywords):  
+    claims_per_dat_label = born_per_date_label(dat1, dat2, granularite,filter_keywords)
     parsed_data = claims_per_dat_label.to_dict(orient='records')
 
     json_data= json.dumps(parsed_data)

@@ -16,13 +16,15 @@ import { NavigationBarComponent } from "../../navigation-bar/navigation-bar.comp
 import { Graph1Component } from "../graph1/graph1.component";
 import { Graph2Component } from "../graph2/graph2.component";
 import { Graph3Component } from "../graph3/graph3.component";
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @Component({
     selector: 'app-by-entity-by-topic',
     standalone: true,
     templateUrl: './by-entity-by-topic.component.html',
     styleUrl: './by-entity-by-topic.component.css',
-    imports: [MatTooltipModule, MatChipsModule, MatIconModule, CommonModule, NgIf, FormsModule, NgFor, MatAutocompleteModule, MatInputModule, MatSelectModule, MatFormFieldModule, ReactiveFormsModule, NavigationBarComponent, Graph3Component, Graph2Component, Graph1Component]
+    imports: [MatSlideToggleModule, MatTooltipModule, MatChipsModule, MatIconModule, CommonModule, NgIf, FormsModule, NgFor, MatAutocompleteModule, MatInputModule, MatSelectModule, MatFormFieldModule, ReactiveFormsModule, NavigationBarComponent, Graph3Component, Graph2Component, Graph1Component]
 })
 export class ByEntityByTopicComponent  {
   topics: string[] = [];
@@ -37,7 +39,7 @@ export class ByEntityByTopicComponent  {
   entityData: any;
   entityData2: any;
   entityData3: any;
-
+  keywords_filter: boolean = false;
   
   constructor(private suggestionService: SuggestionService, private searchService: SearchService){
 
@@ -88,7 +90,7 @@ this.suggestions = this.formEntity.valueChanges.pipe(
     this.firstDate=first_date;
     this.lastDate=last_date;
        if(this.selectedTopic && this.selectedOptions){
-      this.searchService.searchTopicEntity1(this.selectedOptions, this.firstDate, this.lastDate,this.selectedTopic)
+      this.searchService.searchTopicEntity1(this.selectedOptions, this.firstDate, this.lastDate,this.selectedTopic,this.keywords_filter)
       .subscribe({
         next: (result1) => {
           // Handle the data received from the search

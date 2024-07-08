@@ -16,15 +16,18 @@ import { NavigationBarComponent } from "../../navigation-bar/navigation-bar.comp
 import { Graph1Component } from "../graph1/graph1.component";
 import { Graph2Component } from "../graph2/graph2.component";
 import { Graph3Component } from "../graph3/graph3.component";
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatExpansionModule } from '@angular/material/expansion';
 @Component({
     selector: 'app-by-entity-by-topic',
     standalone: true,
     templateUrl: './by-entity-by-topic.component.html',
     styleUrl: './by-entity-by-topic.component.css',
-    imports: [MatTooltipModule, MatChipsModule, MatIconModule, CommonModule, NgIf, FormsModule, NgFor, MatAutocompleteModule, MatInputModule, MatSelectModule, MatFormFieldModule, ReactiveFormsModule, NavigationBarComponent, Graph3Component, Graph2Component, Graph1Component]
+    imports: [MatSlideToggleModule, MatTooltipModule, MatChipsModule, MatIconModule, CommonModule, NgIf, FormsModule, NgFor, MatAutocompleteModule, MatInputModule, MatSelectModule, MatFormFieldModule, ReactiveFormsModule, NavigationBarComponent, Graph3Component, Graph2Component, Graph1Component]
 })
 export class ByEntityByTopicComponent  {
   topics: string[] = [];
+  keywords_filter: boolean = false;
 
   selectedTopic1: string ="";
   selectedTopic2: string ="";
@@ -136,7 +139,7 @@ export class ByEntityByTopicComponent  {
 
   /*********************************  Retreiving Data For First Comparision Group ************************************/
 
-      this.searchService.searchTopicEntity1(this.selectedOptions1, this.firstDate, this.lastDate,this.selectedTopic1)
+      this.searchService.searchTopicEntity1(this.selectedOptions1, this.firstDate, this.lastDate,this.selectedTopic1, this.keywords_filter)
       .subscribe({
         next: (result1) => {
           // Handle the data received from the search
@@ -176,7 +179,7 @@ export class ByEntityByTopicComponent  {
 
   /*********************************  Retreiving Data For Second Comparision Group ************************************/
 
-      this.searchService.searchTopicEntity1(this.selectedOptions2, this.firstDate, this.lastDate,this.selectedTopic2)
+      this.searchService.searchTopicEntity1(this.selectedOptions2, this.firstDate, this.lastDate,this.selectedTopic2, this.keywords_filter)
       .subscribe({
         next: (result1) => {
           // Handle the data received from the search

@@ -9,13 +9,15 @@ import { Graph1Component } from "../graph1/graph1.component";
 import { Graph2Component } from "../graph2/graph2.component";
 import { Graph3Component } from "../graph3/graph3.component";
 import { Graph5Component } from "../graph5/graph5.component";
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @Component({
     selector: 'app-by-topic',
     standalone: true,
     templateUrl: './by-topic.component.html',
     styleUrl: './by-topic.component.css',
-    imports: [MatTooltipModule, MatIconModule, CommonModule, NgIf, FormsModule, NgFor, ReactiveFormsModule, Graph1Component, Graph3Component, Graph2Component, Graph5Component]
+    imports: [MatSlideToggleModule, MatTooltipModule, MatIconModule, CommonModule, NgIf, FormsModule, NgFor, ReactiveFormsModule, Graph1Component, Graph3Component, Graph2Component, Graph5Component]
 })
 export class ByTopicComponent {
   topics: string[] = [];
@@ -30,7 +32,8 @@ export class ByTopicComponent {
   entityData2: any;
   entityData3: any;
   entityData4: any;
-  
+  keywords_filter: boolean = false;
+
   constructor(private searchService: SearchService){
     this.searchService.getTopics().subscribe((data) => {
       this.topics = data;
@@ -43,7 +46,7 @@ export class ByTopicComponent {
     if(this.selectedTopic){
 
       //First graph
-      this.searchService.searchTopic1(this.firstDate, this.lastDate,this.selectedTopic)
+      this.searchService.searchTopic1(this.firstDate, this.lastDate,this.selectedTopic,this.keywords_filter)
     .subscribe({
     next: (result) => {
       this.entityData=result;

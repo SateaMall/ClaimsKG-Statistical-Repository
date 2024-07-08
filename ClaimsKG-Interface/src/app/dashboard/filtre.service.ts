@@ -42,11 +42,11 @@ export class FiltreService {
     this.submitTriggeredSource.next();
   }
 
-  onSubmit(granularite: string,debut: string, fin: string){
+  onSubmit(granularite: string,debut: string, fin: string, filter_keywords: boolean){
       if(debut.length>0 && fin.length>0){
-        this.apiUrl_first_graph = "http://127.0.0.1:5000/json_per_date1_label?date1="+debut+"&date2="+fin+"&granularite="+granularite
+        this.apiUrl_first_graph = "http://127.0.0.1:5000/json_per_date1_label?date1="+debut+"&date2="+fin+"&granularite="+granularite+"&filter_keywords="+filter_keywords
       }else{
-        this.apiUrl_first_graph = "http://127.0.0.1:5000/json_per_date1_label?date1=1996&date2=2024&granularite="+granularite
+        this.apiUrl_first_graph = "http://127.0.0.1:5000/json_per_date1_label?date1=1996&date2=2024&granularite="+granularite+"&filter_keywords="+filter_keywords
       }
       this.apiUrl_per_topic_label="http://127.0.0.1:5000/json_born_per_topics/"+debut+"/"+fin
       this.apiUrl_top_entity_graph = "http://127.0.0.1:5000/json_per_entity_date1_date2/"+debut+"/"+fin

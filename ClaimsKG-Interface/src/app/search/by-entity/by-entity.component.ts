@@ -16,12 +16,14 @@ import { Graph1Component } from "../graph1/graph1.component";
 import { Graph2Component } from "../graph2/graph2.component";
 import { Graph3Component } from "../graph3/graph3.component";
 import { Graph4Component } from "../graph4/graph4.component";
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatExpansionModule } from '@angular/material/expansion';
 @Component({
     selector: 'app-by-entity',
     standalone: true,
     templateUrl: './by-entity.component.html',
     styleUrl: './by-entity.component.css',
-    imports: [MatTooltipModule, MatChipsModule, MatIconModule, CommonModule, NgIf, FormsModule, NgFor, MatAutocompleteModule, MatInputModule, MatSelectModule, MatFormFieldModule, ReactiveFormsModule, Graph1Component, Graph2Component, Graph3Component, Graph4Component]
+    imports: [MatSlideToggleModule, MatTooltipModule, MatChipsModule, MatIconModule, CommonModule, NgIf, FormsModule, NgFor, MatAutocompleteModule, MatInputModule, MatSelectModule, MatFormFieldModule, ReactiveFormsModule, Graph1Component, Graph2Component, Graph3Component, Graph4Component]
 })
 export class ByEntityComponent {
   formEntity= new FormControl('');
@@ -34,6 +36,7 @@ export class ByEntityComponent {
   entityData2: any;
   entityData3: any;
   entityData4: any;
+  keywords_filter: boolean = false;
   
   
   constructor(private suggestionService: SuggestionService, private searchService: SearchService){
@@ -76,7 +79,7 @@ export class ByEntityComponent {
     this.firstDate=first_date;
     this.lastDate=last_date;
     if(this.selectedOptions){
-      this.searchService.searchEntity1(this.selectedOptions, this.firstDate, this.lastDate)
+      this.searchService.searchEntity1(this.selectedOptions, this.firstDate, this.lastDate, this.keywords_filter)
     .subscribe({
     next: (result) => {
       this.entityData=result; // Emit the result to parent component

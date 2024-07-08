@@ -16,12 +16,14 @@ import { Graph1Component } from "../graph1/graph1.component";
 import { Graph2Component } from "../graph2/graph2.component";
 import { Graph3Component } from "../graph3/graph3.component";
 import { Graph4Component } from "../graph4/graph4.component";
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatExpansionModule } from '@angular/material/expansion';
 @Component({
     selector: 'app-by-entity',
     standalone: true,
     templateUrl: './by-entity.component.html',
     styleUrl: './by-entity.component.css',
-    imports: [MatTooltipModule, MatChipsModule, MatIconModule, CommonModule, NgIf, FormsModule, NgFor, MatAutocompleteModule, MatInputModule, MatSelectModule, MatFormFieldModule, ReactiveFormsModule, Graph1Component, Graph2Component, Graph3Component, Graph4Component]
+    imports: [MatSlideToggleModule, MatTooltipModule, MatChipsModule, MatIconModule, CommonModule, NgIf, FormsModule, NgFor, MatAutocompleteModule, MatInputModule, MatSelectModule, MatFormFieldModule, ReactiveFormsModule, Graph1Component, Graph2Component, Graph3Component, Graph4Component]
 })
 export class ByEntityComponent {
   formEntity1= new FormControl('');
@@ -33,6 +35,7 @@ export class ByEntityComponent {
   submitted : boolean = false;
   firstDate:string="";
   lastDate:string="";
+  keywords_filter: boolean = false;
   entityData11: any;
   entityData12: any;
   entityData21: any;
@@ -114,7 +117,7 @@ export class ByEntityComponent {
 
   /*********************************  Retreiving  Data For First Comparision Group ************************************/
 
-      this.searchService.searchEntity1(this.selectedOptionsFirst, this.firstDate, this.lastDate)
+      this.searchService.searchEntity1(this.selectedOptionsFirst, this.firstDate, this.lastDate, this.keywords_filter)
     .subscribe({
     next: (result) => {
       this.entityData11=result; 
@@ -162,7 +165,7 @@ error: (error) => {
   /*********************************  Retreiving Data For Second Comparision Group ************************************/
 
 
-this.searchService.searchEntity1(this.selectedOptionsSecond, this.firstDate, this.lastDate)
+this.searchService.searchEntity1(this.selectedOptionsSecond, this.firstDate, this.lastDate, this.keywords_filter)
 .subscribe({
 next: (result) => {
   this.entityData12=result; 

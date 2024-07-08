@@ -9,16 +9,20 @@ import { Graph1Component } from "../graph1/graph1.component";
 import { Graph2Component } from "../graph2/graph2.component";
 import { Graph3Component } from "../graph3/graph3.component";
 import { Graph5Component } from "../graph5/graph5.component";
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @Component({
     selector: 'app-by-topic',
     standalone: true,
     templateUrl: './by-topic.component.html',
     styleUrl: './by-topic.component.css',
-    imports: [MatTooltipModule, MatIconModule, CommonModule, NgIf, FormsModule, NgFor, ReactiveFormsModule, Graph1Component, Graph3Component, Graph2Component, Graph5Component]
+    imports: [MatSlideToggleModule, MatTooltipModule, MatIconModule, CommonModule, NgIf, FormsModule, NgFor, ReactiveFormsModule, Graph1Component, Graph3Component, Graph2Component, Graph5Component]
 })
 export class ByTopicComponent {
   topics: string[] = [];
+
+  keywords_filter: boolean = false;
 
   selectedTopic1: string ="";
   selectedTopic2: string ="";
@@ -52,7 +56,7 @@ export class ByTopicComponent {
 
 /*********************************  Retreiving  Data For First Comparision Group ************************************/
       //First graph
-      this.searchService.searchTopic1(this.firstDate, this.lastDate,this.selectedTopic1)
+      this.searchService.searchTopic1(this.firstDate, this.lastDate, this.selectedTopic1, this.keywords_filter)
     .subscribe({
     next: (result) => {
       this.entityData11=result;
@@ -65,7 +69,7 @@ export class ByTopicComponent {
   });
 
     // Second Graph
-    this.searchService.searchTopic2(this.firstDate, this.lastDate,this.selectedTopic1)
+    this.searchService.searchTopic2(this.firstDate, this.lastDate, this.selectedTopic1)
     .subscribe({
     next: (result2) => {
       this.entityData21=result2;
@@ -78,7 +82,7 @@ export class ByTopicComponent {
   });
 
   //Theird graph
-  this.searchService.searchTopic3(this.firstDate, this.lastDate,this.selectedTopic1)
+  this.searchService.searchTopic3(this.firstDate, this.lastDate, this.selectedTopic1)
   .subscribe({
   next: (result3) => {
     this.entityData31=result3;
@@ -93,7 +97,7 @@ export class ByTopicComponent {
 
 /*********************************  Retreiving Data For Second Comparision Group ************************************/
    //First graph
-   this.searchService.searchTopic1(this.firstDate, this.lastDate,this.selectedTopic2)
+   this.searchService.searchTopic1(this.firstDate, this.lastDate, this.selectedTopic2, this.keywords_filter)
    .subscribe({
    next: (result) => {
      this.entityData12=result;

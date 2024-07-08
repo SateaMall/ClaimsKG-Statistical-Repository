@@ -11,8 +11,8 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { Observable } from 'rxjs';
-
-
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatExpansionModule } from '@angular/material/expansion';
 @Component({
   selector: 'app-filtre',
   standalone: true,
@@ -27,7 +27,9 @@ import { Observable } from 'rxjs';
     MatAutocompleteModule,
     MatInputModule,
     MatSelectModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSlideToggleModule,
+    MatExpansionModule
   ],
   templateUrl: './filtre.component.html',
   styleUrls: ['./filtre.component.css']
@@ -37,15 +39,14 @@ export class FiltreComponent {
   displayDate: boolean = true;
   suggestions!: Observable<string[]>;
   applyForm = new FormGroup({
-    granularite: new FormControl(''),
+    granularite: new FormControl('Mois'),
     date1: new FormControl(''),
     date2: new FormControl(''),
-
+    filter_keywords: new FormControl(false),
   });
 
   constructor() {
   }
-
 
   displayElement(): void {
     this.displayDate = !this.displayDate;
@@ -63,7 +64,8 @@ export class FiltreComponent {
     this.filtreService.onSubmit(
       granularite,
       this.applyForm.value.date2 ?? '',
-      this.applyForm.value.date1 ?? ''
+      this.applyForm.value.date1 ?? '',
+      this.applyForm.value.filter_keywords ?? false
     );
   }
 
