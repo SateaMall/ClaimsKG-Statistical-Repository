@@ -1,16 +1,11 @@
-# ClaimsKG-Statistical-Repository
+## ClaimsKG-Statistical-Repository
 A statistical repository for the knowlege graph of the ClaimsKG
 
 # Clone the project
 git clone git@github.com:SateaMall/ClaimsKG-Statistical-Repository.git
 
-# Install dependencies
-pip install pandas
-pip install SPARQLWrapper
-pip install flask-cors
-pip install langcodes
-pip install numpy
-...
+# Install dependencies from requirements.txt in the back-end
+pip install -r requirements.txt
 
 # Run the app.py in claimsKG-Backend: 
 python3 app.py
@@ -25,6 +20,9 @@ https://drive.google.com/file/d/1VG-3ZnDwHTbzQ_ZyeU4e4TVN0rZVk7c0/view?usp=drive
 
 # Rerun the app.py in claimsKG-Backend:
 python3 app.py
+
+# Install the npm in the front-end
+npm install
 
 # Run the interface in claimsKG-FrontEnd:
 npm start
