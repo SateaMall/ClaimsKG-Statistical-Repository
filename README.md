@@ -1,5 +1,6 @@
 # ClaimsKG-Statistical-Repository
-A statistical repository for the knowlege graph of the ClaimsKG
+## Prerequisites:
+Redis Server: Make sure Redis is installed and running on your machine.
 
 ## Clone the project
 git clone git@github.com:SateaMall/ClaimsKG-Statistical-Repository.git
