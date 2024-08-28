@@ -9,7 +9,7 @@ git clone git@github.com:SateaMall/ClaimsKG-Statistical-Repository.git
 ## 2- Install dependencies from requirements.txt in the claimsKG-Backend
 pip install -r requirements.txt
 
-## 3- Start the Redis server using this command:
+## 3- Start the Redis server using this command (Important to install the dataframes):
 redis-server
 
 ## 4- Run the app.py in claimsKG-Backend: 
