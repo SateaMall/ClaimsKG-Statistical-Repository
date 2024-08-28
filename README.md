@@ -20,7 +20,7 @@ https://drive.google.com/file/d/1VG-3ZnDwHTbzQ_ZyeU4e4TVN0rZVk7c0/view?usp=drive
 
 ## Copy it to '../ClaimsKG-Statistical-Repository/ClaimsKG-backend/modules'
 
-## Rerun the app.py in claimsKG-Backend:
+## **Rerun** the app.py in claimsKG-Backend:
 python3 app.py
 
 ## Install the npm in the claimsKG-Frontend:
