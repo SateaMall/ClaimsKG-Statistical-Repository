@@ -1,7 +1,8 @@
 # ClaimsKG-Statistical-Repository
 ## Prerequisites:
-Redis Server: Make sure Redis is installed and running on your machine.
-
+- Redis Server: Make sure Redis is installed and running on your machine.
+- Node.js: Requires a minimum Node.js version of v18.13.
+  
 ## Clone the project
 git clone git@github.com:SateaMall/ClaimsKG-Statistical-Repository.git
 
